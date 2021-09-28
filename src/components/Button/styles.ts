@@ -1,4 +1,5 @@
 import styled, { css, DefaultTheme } from 'styled-components'
+import { lighten } from 'polished'
 
 import { ButtonProps } from '.'
 
@@ -56,6 +57,15 @@ export const Wrapper = styled.button<WrapperProps>`
     border-radius: ${theme.border.radius};
     padding: ${theme.spacings.xxsmall};
     text-decoration: none;
+    transition: background-color ease 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 3px ${theme.colors.lightBg};
+    }
+
+    &:hover {
+      background: ${lighten(0.1, theme.colors.darkBg)};
+    }
 
     ${!!size && wrapperModifiers[size](theme)};
     ${!!fullWidth && wrapperModifiers.fullWidth()};
