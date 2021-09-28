@@ -13,5 +13,6 @@ export default {
 
 export const Default: Story<HeadingProps> = (args) => <Heading {...args} />
 Default.args = {
-  children: 'AQUACARE'
+  children: 'AQUACARE',
+  color: 'primary'
 }
