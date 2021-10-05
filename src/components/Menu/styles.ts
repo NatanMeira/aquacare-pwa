@@ -5,6 +5,8 @@ export const Wrapper = styled.menu`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: ${theme.colors.darkBg};
+    padding: 0 0.4rem;
 
     .menu-icon {
       cursor: pointer;
