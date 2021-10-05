@@ -32,3 +32,10 @@ withIcon.args = {
   children: 'ADICIONAR',
   icon: <Add />
 }
+export const asAnchor: Story<ButtonProps> = (args) => <Button {...args} />
+asAnchor.args = {
+  as: 'a',
+  size: 'small',
+  children: 'HOME',
+  href: '/'
+}
