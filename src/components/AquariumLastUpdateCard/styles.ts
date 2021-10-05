@@ -11,6 +11,7 @@ export const Main = styled.main`
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+  padding: 0 1rem;
 `
 export const AquariumInfo = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ export const Info = styled.span`
     color: ${theme.colors.primary};
     text-transform: uppercase;
     line-height: 2rem;
+    font-size: 1.4rem;
   `}
 `
 export const Habitable = styled.footer<{ bgColor: 'success' | 'error' }>`
