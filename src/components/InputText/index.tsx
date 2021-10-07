@@ -18,12 +18,10 @@ const InputText = ({
   initialValue,
   ...props
 }: InputTextProps) => {
-  const [value, setValue] = useState(initialValue)
-
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.currentTarget.value
-    setValue(newValue)
     !!onInputChange && onInputChange(newValue)
+    !!props.onChange && props.onChange(e)
   }
 
   return (
@@ -34,7 +32,6 @@ const InputText = ({
         <S.Input
           type="text"
           onChange={onChange}
-          value={value}
           name={name}
           {...(label ? { id: name } : {})}
           {...props}
