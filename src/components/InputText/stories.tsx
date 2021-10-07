@@ -3,7 +3,7 @@ import InputText, { InputTextProps } from '.'
 import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
 
 export default {
-  title: 'Input/InputText',
+  title: 'InputText',
   component: InputText,
   argTypes: {
     onInput: { action: 'changed' },
