@@ -1,8 +1,17 @@
 import * as S from './styles'
+import Heading from 'components/Heading'
 
-const Auth = () => (
+type AuthProps = {
+  title?: string
+  children: React.ReactNode
+}
+
+const Auth = ({ title, children }: AuthProps) => (
   <S.Wrapper>
-    <h1>Auth</h1>
+    <S.Content>
+      <Heading color="primary">{title}</Heading>
+      {children}
+    </S.Content>
   </S.Wrapper>
 )
 
