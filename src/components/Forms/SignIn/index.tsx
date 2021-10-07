@@ -6,6 +6,7 @@ import InputText from 'components/InputText'
 import Button from 'components/Button'
 import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
 import { LockPassword } from '@styled-icons/remix-line/LockPassword'
+import Link from 'next/link'
 
 const SignIn = () => {
   const formik = useFormik({
@@ -27,37 +28,45 @@ const SignIn = () => {
   })
 
   return (
-    <S.Form onSubmit={formik.handleSubmit}>
-      <S.FormControl>
-        <InputText
-          name="email"
-          type="email"
-          onChange={formik.handleChange('email')}
-          value={formik.values.email}
-          icon={<EmailOutline />}
-          onBlur={formik.handleBlur('email')}
-          error={formik.touched.email ? formik.errors.email : undefined}
-        />
-      </S.FormControl>
+    <S.Wrapper>
+      <S.Form onSubmit={formik.handleSubmit}>
+        <S.FormControl>
+          <InputText
+            name="email"
+            type="email"
+            onChange={formik.handleChange('email')}
+            value={formik.values.email}
+            icon={<EmailOutline />}
+            onBlur={formik.handleBlur('email')}
+            error={formik.touched.email ? formik.errors.email : undefined}
+          />
+        </S.FormControl>
 
-      <S.FormControl>
-        <InputText
-          name="password"
-          type="password"
-          onChange={formik.handleChange('password')}
-          value={formik.values.password}
-          icon={<LockPassword />}
-          onBlur={formik.handleBlur('password')}
-          error={formik.touched.password ? formik.errors.password : undefined}
-        />
-      </S.FormControl>
+        <S.FormControl>
+          <InputText
+            name="password"
+            type="password"
+            onChange={formik.handleChange('password')}
+            value={formik.values.password}
+            icon={<LockPassword />}
+            onBlur={formik.handleBlur('password')}
+            error={formik.touched.password ? formik.errors.password : undefined}
+          />
+        </S.FormControl>
 
-      <S.FormControl>
-        <Button type="submit" fullWidth>
-          Entrar
-        </Button>
-      </S.FormControl>
-    </S.Form>
+        <S.FormControl>
+          <Button type="submit" fullWidth>
+            Entrar
+          </Button>
+        </S.FormControl>
+      </S.Form>
+      <S.SignUp>
+        Não possui uma conta?
+        <Link href="/sign-up">
+          <a> Cadastre-se</a>
+        </Link>
+      </S.SignUp>
+    </S.Wrapper>
   )
 }
 
