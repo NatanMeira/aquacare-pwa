@@ -39,6 +39,7 @@ const SignIn = () => {
             icon={<EmailOutline />}
             onBlur={formik.handleBlur('email')}
             error={formik.touched.email ? formik.errors.email : undefined}
+            placeholder="E-mail"
           />
         </S.FormControl>
 
@@ -51,6 +52,7 @@ const SignIn = () => {
             icon={<LockPassword />}
             onBlur={formik.handleBlur('password')}
             error={formik.touched.password ? formik.errors.password : undefined}
+            placeholder="Senha"
           />
         </S.FormControl>
 

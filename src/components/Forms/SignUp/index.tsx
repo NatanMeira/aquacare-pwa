@@ -42,6 +42,7 @@ const SignUp = () => {
             icon={<User />}
             onBlur={formik.handleBlur('name')}
             error={formik.touched.name ? formik.errors.name : undefined}
+            placeholder="Nome de Usuário"
           />
         </S.FormControl>
 
@@ -54,6 +55,7 @@ const SignUp = () => {
             icon={<EmailOutline />}
             onBlur={formik.handleBlur('email')}
             error={formik.touched.email ? formik.errors.email : undefined}
+            placeholder="E-mail"
           />
         </S.FormControl>
 
@@ -66,6 +68,7 @@ const SignUp = () => {
             icon={<LockPassword />}
             onBlur={formik.handleBlur('password')}
             error={formik.touched.password ? formik.errors.password : undefined}
+            placeholder="Senha"
           />
         </S.FormControl>
 
@@ -82,6 +85,7 @@ const SignUp = () => {
                 ? formik.errors.passwordConfirmation
                 : undefined
             }
+            placeholder="Confirmação de senha"
           />
         </S.FormControl>
 
