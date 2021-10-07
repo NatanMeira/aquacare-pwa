@@ -7,6 +7,7 @@ import Button from 'components/Button'
 import { LockPassword } from '@styled-icons/remix-line/LockPassword'
 import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
 import { User } from '@styled-icons/boxicons-regular/User'
+import Link from 'next/link'
 
 const SignUp = () => {
   const formik = useFormik({
@@ -90,6 +91,13 @@ const SignUp = () => {
           </Button>
         </S.FormControl>
       </form>
+
+      <S.SignIn>
+        Já possui uma conta?
+        <Link href="/sign-in">
+          <a> Acesse</a>
+        </Link>
+      </S.SignIn>
     </S.Wrapper>
   )
 }
