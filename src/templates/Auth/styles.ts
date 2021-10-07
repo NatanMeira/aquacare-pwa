@@ -16,7 +16,7 @@ export const Wrapper = styled.main`
 
 export const Content = styled.div`
   background: white;
-  padding: 2rem;
+  padding: 2rem 3rem;
   border-radius: 1rem;
+  width: 50rem;
 `
-
