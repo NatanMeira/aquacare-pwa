@@ -4,7 +4,6 @@ import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import InputText from 'components/InputText'
 import Button from 'components/Button'
-import Heading from 'components/Heading'
 import { LockPassword } from '@styled-icons/remix-line/LockPassword'
 import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
 import { User } from '@styled-icons/boxicons-regular/User'
@@ -32,7 +31,6 @@ const SignUp = () => {
 
   return (
     <S.Wrapper>
-      <Heading>REGISTRAR</Heading>
       <form onSubmit={formik.handleSubmit}>
         <S.FormControl>
           <InputText
