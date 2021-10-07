@@ -63,7 +63,7 @@ const GlobalStyles: GlobalStyleComponent<
       font-size: ${theme.font.sizes.medium};
       ${!removeBg &&
       css`
-        background-color: ${theme.colors.mainBg};
+        background: radial-gradient(#0085ff 60%, #0043a6);
       `}
     }
   `}
