@@ -7,8 +7,13 @@ import Button from 'components/Button'
 import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
 import { LockPassword } from '@styled-icons/remix-line/LockPassword'
 import Link from 'next/link'
+import { signIn } from 'next-auth/client'
+import { useRouter } from 'next/router'
 
 const SignIn = () => {
+  const routes = useRouter()
+  const { push } = routes
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -19,10 +24,22 @@ const SignIn = () => {
     validateOnChange: true,
     onSubmit: async (values) => {
       try {
-        // TODO: integrate with api
-        toast.success('Autenticado com sucesso!')
-      } catch (err) {
+        const result = await signIn('credentials', {
+          ...values,
+          redirect: false,
+          callbackUrl: '/'
+        })
+
+        if (result?.url) {
+          toast.success('Autenticado com sucesso!')
+          return push(result?.url)
+        }
+
         toast.error('Usuário ou senha incorretos!')
+      } catch (err) {
+        toast.error(
+          'Ocorreu um erro ao tentar autenticar o usuário, por favor tente novamente.'
+        )
       }
     }
   })
