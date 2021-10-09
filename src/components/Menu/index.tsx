@@ -4,6 +4,7 @@ import { Close as CloseIcon } from '@styled-icons/evaicons-solid/Close'
 import Heading from 'components/Heading'
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { signOut } from 'next-auth/client'
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -35,6 +36,9 @@ const Menu = () => {
           <Link href="/dispositivos" passHref>
             <S.MenuLink>DISPOSITIVOS</S.MenuLink>
           </Link>
+          <button type="button" onClick={() => signOut()}>
+            <S.MenuLink role="button">SAIR</S.MenuLink>
+          </button>
         </S.MenuNav>
       </S.MenuFull>
     </S.Wrapper>

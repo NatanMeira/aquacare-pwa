@@ -6,7 +6,7 @@ export const Wrapper = styled.menu`
     justify-content: space-between;
     align-items: center;
     background-color: ${theme.colors.darkBg};
-    padding: 0 0.4rem;
+    padding: 0.8rem 0.4rem;
 
     .menu-icon {
       cursor: pointer;
@@ -71,6 +71,12 @@ export const MenuFull = styled.nav<{ isOpen: boolean }>`
 export const MenuNav = styled.div`
   ${({ theme }) => css`
     margin-left: ${theme.spacings.small};
+
+    button {
+      background: 0;
+      border: 0;
+      cursor: pointer;
+    }
   `}
 `
 
