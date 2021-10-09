@@ -6,10 +6,16 @@ import InputText from 'components/InputText'
 import Button from 'components/Button'
 import { LockPassword } from '@styled-icons/remix-line/LockPassword'
 import { EmailOutline } from '@styled-icons/evaicons-outline/EmailOutline'
-import { User } from '@styled-icons/boxicons-regular/User'
+import { User as UserIcon } from '@styled-icons/boxicons-regular/User'
 import Link from 'next/link'
+import { User } from 'services/api/Models'
+import useFetch from 'hooks/useFetch'
+import { USER_REGISTER } from 'services/api/Repository/user'
+import Router from 'next/router'
 
 const SignUp = () => {
+  const { request } = useFetch<User>()
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -23,7 +29,20 @@ const SignUp = () => {
     onSubmit: async (values) => {
       try {
         // TODO: integrate with api
-        toast.success('Registrado com sucesso!')
+        const { password, name, email, passwordConfirmation } = values
+
+        const { response } = await request(
+          USER_REGISTER({
+            password,
+            name,
+            email,
+            password_confirmation: passwordConfirmation
+          })
+        )
+        if (response && response.ok) {
+          toast.success('Registrado com sucesso!')
+          Router.push('/sign-in')
+        }
       } catch (err) {
         toast.error('Falha ao registrar um usuário')
       }
@@ -39,7 +58,7 @@ const SignUp = () => {
             type="text"
             onChange={formik.handleChange('name')}
             value={formik.values.name}
-            icon={<User />}
+            icon={<UserIcon />}
             onBlur={formik.handleBlur('name')}
             error={formik.touched.name ? formik.errors.name : undefined}
             placeholder="Nome de Usuário"
