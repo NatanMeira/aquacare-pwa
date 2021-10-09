@@ -1,7 +1,12 @@
 import Api from '../api'
 import { User } from '../Models'
 
-export const USER_REGISTER = (body: User) => {
+interface SignUpUser extends User {
+  password: string
+  password_confirmation: string
+}
+
+export const USER_REGISTER = (body: SignUpUser) => {
   return new Api().makePost(`/register`, body)
 }
 
