@@ -12,12 +12,14 @@ const Menu = () => {
   return (
     <S.Wrapper>
       <S.iconWrapper>
-        <S.Logo
-          src="/img/logo.svg"
-          alt="Aquarium icon"
-          height="100%"
-          width="100%"
-        />
+        <Link href="/">
+          <S.Logo
+            src="/img/logo.svg"
+            alt="Aquarium icon"
+            height="100%"
+            width="100%"
+          />
+        </Link>
       </S.iconWrapper>
       <Heading>AQUACARE</Heading>
       <S.iconWrapper onClick={() => setIsOpen(true)}>
@@ -27,11 +29,11 @@ const Menu = () => {
       <S.MenuFull isOpen={isOpen}>
         <CloseIcon onClick={() => setIsOpen(false)} />
         <S.MenuNav>
-          <Link href="/aquarios" passHref>
-            <S.MenuLink>AQUARIOS</S.MenuLink>
+          <Link href="/" passHref>
+            <S.MenuLink>HOME</S.MenuLink>
           </Link>
-          <Link href="/status" passHref>
-            <S.MenuLink>STATUS</S.MenuLink>
+          <Link href="/aquarios" passHref>
+            <S.MenuLink>AQUÁRIOS</S.MenuLink>
           </Link>
           <Link href="/dispositivos" passHref>
             <S.MenuLink>DISPOSITIVOS</S.MenuLink>

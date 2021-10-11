@@ -15,6 +15,7 @@ export const Wrapper = styled.menu`
 `
 export const iconWrapper = styled.div`
   ${({ theme }) => css`
+    cursor: pointer;
     color: ${theme.colors.white};
     width: 2.4rem;
     height: 2.4rem;
