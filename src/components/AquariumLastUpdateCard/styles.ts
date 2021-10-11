@@ -29,11 +29,14 @@ export const Info = styled.span`
     font-size: 1.4rem;
   `}
 `
-export const Habitable = styled.footer<{ bgColor: 'success' | 'error' }>`
+export const Habitable = styled.footer<{
+  bgColor: 'success' | 'error' | 'primary'
+}>`
   ${({ theme, bgColor }) => css`
     background: ${theme.colors[bgColor!]};
     border-radius: 0 0 1rem 1rem;
     margin-top: 1rem;
+    color ${bgColor === 'primary' ? 'white' : 'unset'}
   `}
 `
 export const AquariumImg = styled.img`

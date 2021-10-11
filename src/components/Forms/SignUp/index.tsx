@@ -29,16 +29,20 @@ const SignUp = () => {
     onSubmit: async (values) => {
       try {
         // TODO: integrate with api
+
         const { password, name, email, passwordConfirmation } = values
 
-        const { response } = await request(
-          USER_REGISTER({
-            password,
-            name,
-            email,
-            password_confirmation: passwordConfirmation
-          })
-        )
+        const d = USER_REGISTER({
+          password,
+          name,
+          email,
+          password_confirmation: passwordConfirmation
+        })
+        console.log(d)
+
+        const { response } = await request(d)
+        console.log(response)
+
         if (response && response.ok) {
           toast.success('Registrado com sucesso!')
           Router.push('/sign-in')

@@ -5,13 +5,22 @@ function useFetch<T = unknown>() {
   const [error, setError] = React.useState(null)
   const [loading, setLoading] = React.useState(false)
 
-  const request = React.useCallback(async ({ url, options }) => {
+  const request = React.useCallback(async ({ url, options }, session?) => {
+    console.log(options)
+
     let response
     let json
     try {
       setError(null)
       setLoading(true)
-      response = await fetch(url, options)
+      response = await fetch(url, {
+        body: JSON.stringify(options.body),
+        method: options.method,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + session.jwt || ''
+        }
+      })
       json = await response.json()
       if (response.ok === false) throw new Error(json.message)
     } catch (err: any) {

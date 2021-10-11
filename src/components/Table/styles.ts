@@ -5,8 +5,6 @@ export const Table = styled.table`
   ${({ theme }) => css`
     border-collapse: collapse;
     width: 100%;
-    border-left: 2px solid ${darken(0.1, theme.colors.darkBg)};
-    border-right: 2px solid ${darken(0.1, theme.colors.darkBg)};
   `}
 `
 
@@ -56,5 +54,14 @@ export const Wrapper = styled.div`
       background: ${darken(0.1, theme.colors.darkBg)};
       height: 3rem;
     }
+  `}
+`
+
+export const TableWrapper = styled.div`
+  ${({ theme }) => css`
+    min-height: 20rem;
+    background: #e3e3e3;
+    border-left: 2px solid ${darken(0.1, theme.colors.darkBg)};
+    border-right: 2px solid ${darken(0.1, theme.colors.darkBg)};
   `}
 `

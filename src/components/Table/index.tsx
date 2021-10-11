@@ -31,31 +31,34 @@ const Table = ({
   return (
     <S.Wrapper>
       <Heading>{title}</Heading>
-      <S.Table {...getTableProps()}>
-        <S.THead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <S.TH {...column.getHeaderProps()}>
-                  {column.render('Header')}
-                </S.TH>
-              ))}
-            </tr>
-          ))}
-        </S.THead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row)
-            return (
-              <S.TR {...row.getRowProps()}>
-                {row.cells.map((cell) => (
-                  <S.TD {...cell.getCellProps()}>{cell.render('Cell')}</S.TD>
+      <S.TableWrapper>
+        <S.Table {...getTableProps()}>
+          <S.THead>
+            {headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <S.TH {...column.getHeaderProps()}>
+                    {column.render('Header')}
+                  </S.TH>
                 ))}
-              </S.TR>
-            )
-          })}
-        </tbody>
-      </S.Table>
+              </tr>
+            ))}
+          </S.THead>
+          <tbody {...getTableBodyProps()}>
+            {rows.map((row) => {
+              prepareRow(row)
+              return (
+                <S.TR {...row.getRowProps()}>
+                  {row.cells.map((cell) => (
+                    <S.TD {...cell.getCellProps()}>{cell.render('Cell')}</S.TD>
+                  ))}
+                </S.TR>
+              )
+            })}
+          </tbody>
+        </S.Table>
+      </S.TableWrapper>
+
       {buttonUrl && buttonLabel && (
         <Button as={'a'} href={buttonUrl} icon={<Add />} fullWidth>
           {buttonLabel}

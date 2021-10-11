@@ -12,7 +12,7 @@ export type AquariumLastUpdateCardProps = {
 }
 
 const AquariumLastUpdateCard = ({
-  name,
+  name = '--------',
   updateAt,
   status,
   isHabitable,
@@ -26,16 +26,26 @@ const AquariumLastUpdateCard = ({
       <S.AquariumImg src="/img/logo-outlined.svg" alt="aquário" />
       <S.AquariumInfo>
         <S.Info>{name}</S.Info>
-        <S.Info>{liters} Litros</S.Info>
-        <S.Info>{format(new Date(updateAt), 'HH:mm - dd/MM/yyyy')}</S.Info>
-        <Chip
-          label={status === 'safe/alert' ? 'SEGURO' : 'PERIGOSO'}
-          color={status === 'safe/alert' ? 'alarm' : 'toxic'}
-        />
+        {liters && <S.Info>{liters} Litros</S.Info>}
+        {updateAt && (
+          <S.Info>{format(new Date(updateAt), 'HH:mm - dd/MM/yyyy')}</S.Info>
+        )}
+        {status && (
+          <Chip
+            label={status === 'safe/alert' ? 'SEGURO' : 'PERIGOSO'}
+            color={status === 'safe/alert' ? 'alarm' : 'toxic'}
+          />
+        )}
       </S.AquariumInfo>
     </S.Main>
-    <S.Habitable bgColor={isHabitable ? 'success' : 'error'}>
-      {isHabitable ? 'HABITÁVEL' : 'INABITÁVEL'}
+    <S.Habitable
+      bgColor={isHabitable ? 'success' : isHabitable ? 'error' : 'primary'}
+    >
+      {isHabitable
+        ? 'HABITÁVEL'
+        : isHabitable
+        ? 'INABITÁVEL'
+        : 'VOCÊ AINDA NÃO CADASTROU UM AQUARIO'}
     </S.Habitable>
   </S.Wrapper>
 )
