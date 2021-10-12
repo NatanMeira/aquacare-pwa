@@ -32,16 +32,14 @@ const SignUp = () => {
 
         const { password, name, email, passwordConfirmation } = values
 
-        const d = USER_REGISTER({
-          password,
-          name,
-          email,
-          password_confirmation: passwordConfirmation
-        })
-        console.log(d)
-
-        const { response } = await request(d)
-        console.log(response)
+        const { response } = await request(
+          USER_REGISTER({
+            password,
+            name,
+            email,
+            password_confirmation: passwordConfirmation
+          })
+        )
 
         if (response && response.ok) {
           toast.success('Registrado com sucesso!')
