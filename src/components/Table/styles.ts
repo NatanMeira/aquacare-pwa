@@ -5,6 +5,7 @@ export const Table = styled.table`
   ${({ theme }) => css`
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
   `}
 `
 
