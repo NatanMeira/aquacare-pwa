@@ -6,8 +6,6 @@ function useFetch<T = unknown>() {
   const [loading, setLoading] = React.useState(false)
 
   const request = React.useCallback(async ({ url, options }, session?) => {
-    console.log(options)
-
     let response
     let json
     try {
