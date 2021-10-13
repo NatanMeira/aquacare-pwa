@@ -24,6 +24,13 @@ export const Default: Story<SelectFieldProps> = (args) => (
   <SelectField {...args} />
 )
 
+export const withoutOptions: Story<SelectFieldProps> = (args) => (
+  <SelectField {...args} />
+)
+withoutOptions.args = {
+  options: []
+}
+
 export const withLabel: Story<SelectFieldProps> = (args) => (
   <SelectField {...args} />
 )

@@ -23,8 +23,6 @@ const AddAquarium = () => {
     validateOnBlur: true,
     validateOnChange: true,
     onSubmit: async (values) => {
-      console.log(values)
-
       try {
         const { name } = values
         const user_id = session?.id as number
@@ -41,7 +39,7 @@ const AddAquarium = () => {
 
         if (response && response.ok) {
           toast.success('Aquário criado com sucesso!')
-          Router.push('/aquarios')
+          Router.push('/aquariums')
         }
       } catch (err) {
         toast.error('Falha ao criar um aquário')

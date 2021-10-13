@@ -16,7 +16,7 @@ export const aquariumColumns = [
     Header: 'Action',
     accessor: 'id',
     Cell: (row: any) => (
-      <Button as={'a'} href={`/aquario/${row.value}`}>
+      <Button as={'a'} href={`/aquarium/${row.value}`}>
         VER STATUS
       </Button>
     )

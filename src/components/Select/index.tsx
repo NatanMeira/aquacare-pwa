@@ -1,15 +1,13 @@
 import * as S from './styles'
-import Select from 'react-select'
 import { SelectHTMLAttributes } from 'react'
 
 export type SelectOption = { value: string; label: string }
 
 export type SelectFieldProps = {
-  options: SelectOption[] | any[]
+  options: SelectOption[]
   label?: string
   error?: string
   onInputChange?: (value: string) => void
-  isLoading: boolean
 } & SelectHTMLAttributes<HTMLSelectElement>
 
 const SelectField = ({
@@ -17,32 +15,36 @@ const SelectField = ({
   label,
   error,
   name,
-  placeholder,
   value,
-  isLoading = false,
-  onChange,
-  onInputChange
+  onInputChange,
+  ...props
 }: SelectFieldProps) => {
-  const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newValue = e.currentTarget.value
     !!onInputChange && onInputChange(newValue)
-    !!onChange && onChange(e)
+    !!props.onChange && props.onChange(e)
   }
 
   return (
-    <S.Wrapper hasError={!!error}>
+    <S.Wrapper>
       {!!label && <S.Label htmlFor={name}>{label}</S.Label>}
-      <Select
-        options={options}
-        value={value}
+      <S.Select
+        onChange={onChange}
         name={name}
         id={name}
-        onChange={handleOnChange}
-        noOptionsMessage={() => 'Nenhuma opção para ser selecionada!'}
-        placeholder={placeholder}
-        isLoading={isLoading}
-        defaultValue={((value = '2'), (label = 'string'))}
-      />
+        defaultValue=""
+        hasError={!!error}
+        {...props}
+      >
+        <S.Option value="" disabled>
+          Selecionar
+        </S.Option>
+        {options?.map((option) => (
+          <S.Option key={option.value} value={option.value}>
+            {option.label}
+          </S.Option>
+        ))}
+      </S.Select>
       {!!error && <S.Error>{error}</S.Error>}
     </S.Wrapper>
   )

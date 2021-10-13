@@ -1,6 +1,11 @@
 import { makePost } from '../api'
-import { Device } from '../Models'
 
-export const USER_REGISTER = (body: Device) => {
+interface CreateDevice {
+  device_id: string
+  user_id: number
+  aquarium_id: number
+}
+
+export const DEVICE_CREATE = (body: CreateDevice) => {
   return makePost(`/device`, body)
 }
