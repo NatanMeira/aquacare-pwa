@@ -53,6 +53,11 @@ const GlobalStyles: GlobalStyleComponent<
     }
   }
 
+  html, body, #__next {
+    height: 100%;
+    width: 100%;
+  }
+
   ${({ theme, removeBg }) => css`
     html {
       font-size: 62.5%;
@@ -61,6 +66,7 @@ const GlobalStyles: GlobalStyleComponent<
     body {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
+
       ${!removeBg &&
       css`
         background: radial-gradient(#0085ff 60%, #0043a6);

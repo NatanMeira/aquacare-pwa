@@ -42,6 +42,9 @@ export const TR = styled.tr`
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background-color: ${darken(0.1, theme.colors.darkBg)};
     border-radius: 2rem;
     padding-bottom: 1.5rem;
@@ -60,7 +63,7 @@ export const Wrapper = styled.div`
 
 export const TableWrapper = styled.div`
   ${({ theme }) => css`
-    min-height: 20rem;
+    height: 100%;
     background: #e3e3e3;
     border-left: 2px solid ${darken(0.1, theme.colors.darkBg)};
     border-right: 2px solid ${darken(0.1, theme.colors.darkBg)};
