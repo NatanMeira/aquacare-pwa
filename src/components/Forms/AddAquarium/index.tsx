@@ -17,7 +17,7 @@ const AddAquarium = () => {
   const formik = useFormik({
     initialValues: {
       name: '',
-      liters: 1
+      liters: ''
     },
     validationSchema: AddAquariumSchema,
     validateOnBlur: true,
