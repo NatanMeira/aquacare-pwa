@@ -8,15 +8,17 @@ function useFetch<T = unknown>() {
   const request = React.useCallback(async ({ url, options }, session?) => {
     let response
     let json
+    console.log(options.body)
+
     try {
       setError(null)
       setLoading(true)
       response = await fetch(url, {
-        body: JSON.stringify(options.body),
+        body: options.body,
         method: options.method,
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + session.jwt || ''
+          Authorization: `Bearer ${session.jwt}` || ''
         }
       })
       json = await response.json()
