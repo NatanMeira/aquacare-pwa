@@ -1,9 +1,9 @@
 import { GetServerSidePropsContext } from 'next'
-import Status from 'templates/Status'
+import Devices from 'templates/Devices'
 import protectedRoutes from 'utils/protected-routes'
 
-export default function AquariumStats() {
-  return <Status />
+export default function Device() {
+  return <Devices />
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {

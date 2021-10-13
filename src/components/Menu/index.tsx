@@ -32,10 +32,10 @@ const Menu = () => {
           <Link href="/" passHref>
             <S.MenuLink>HOME</S.MenuLink>
           </Link>
-          <Link href="/aquarios" passHref>
+          <Link href="/aquariums" passHref>
             <S.MenuLink>AQUÁRIOS</S.MenuLink>
           </Link>
-          <Link href="/dispositivos" passHref>
+          <Link href="/devices" passHref>
             <S.MenuLink>DISPOSITIVOS</S.MenuLink>
           </Link>
           <button type="button" onClick={() => signOut()}>

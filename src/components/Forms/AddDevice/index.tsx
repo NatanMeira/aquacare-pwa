@@ -44,7 +44,7 @@ const AddDevice = () => {
 
         if (response && response.ok) {
           toast.success('Dispositivo adicionado com sucesso!')
-          Router.push('/dispositivo')
+          Router.push('/devices')
         }
       } catch (err) {
         toast.error('Falha ao adicionar um dispositivo')

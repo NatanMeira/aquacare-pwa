@@ -51,3 +51,10 @@ export const statsColumns = [
     }
   }
 ]
+
+export const devicesColumns = [
+  {
+    Header: 'Código dos dispositivos',
+    accessor: 'device_id'
+  }
+]
