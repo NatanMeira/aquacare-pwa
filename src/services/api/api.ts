@@ -22,7 +22,7 @@ export const makePut = (uri: string, body: any) => {
     url: process.env.NEXT_PUBLIC_API_URL + uri,
     options: {
       method: 'PUT',
-      body
+      body: JSON.stringify(body)
     }
   }
 }
