@@ -90,8 +90,8 @@ const AddAquarium = () => {
 }
 
 const AddAquariumSchema = yup.object().shape({
-  // name: yup.string().required('Nome é um campo obrigatório'),
-  // liters: yup.number().required('A qtd de litros é um campo obrigatório')
+  name: yup.string().required('Nome é um campo obrigatório'),
+  liters: yup.number().required('A qtd de litros é um campo obrigatório')
 })
 
 export default AddAquarium
