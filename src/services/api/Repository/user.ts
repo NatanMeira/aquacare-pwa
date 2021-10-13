@@ -1,4 +1,4 @@
-import Api from '../api'
+import { makePost } from '../api'
 import { User } from '../Models'
 
 interface SignUpUser extends User {
@@ -7,9 +7,9 @@ interface SignUpUser extends User {
 }
 
 export const USER_REGISTER = (body: SignUpUser) => {
-  return new Api().makePost(`/register`, body)
+  return makePost(`/register`, body)
 }
 
 export const USER_LOGOUT = () => {
-  return new Api().makePost(`/logout`, {})
+  return makePost(`/logout`, {})
 }

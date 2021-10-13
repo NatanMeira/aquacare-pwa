@@ -1,45 +1,37 @@
-export default class Api {
-  private API_URL: string
-
-  constructor() {
-    this.API_URL = process.env.NEXT_PUBLIC_API_URL!
-  }
-
-  makePost = (uri: string, body: any) => {
-    return {
-      url: this.API_URL + uri,
-      options: {
-        method: 'POST',
-        body: JSON.stringify(body)
-      }
+export const makePost = (uri: string, body: any) => {
+  return {
+    url: process.env.NEXT_PUBLIC_API_URL + uri,
+    options: {
+      method: 'POST',
+      body: JSON.stringify(body)
     }
   }
+}
 
-  makeGet = (uri: string) => {
-    return {
-      url: this.API_URL + uri,
-      options: {
-        method: 'GET'
-      }
+export const makeGet = (uri: string) => {
+  return {
+    url: process.env.NEXT_PUBLIC_API_URL + uri,
+    options: {
+      method: 'GET'
     }
   }
+}
 
-  makePut = (uri: string, body: any) => {
-    return {
-      url: this.API_URL + uri,
-      options: {
-        method: 'PUT',
-        body
-      }
+export const makePut = (uri: string, body: any) => {
+  return {
+    url: process.env.NEXT_PUBLIC_API_URL + uri,
+    options: {
+      method: 'PUT',
+      body
     }
   }
+}
 
-  makeDelete = (uri: string) => {
-    return {
-      url: this.API_URL + uri,
-      options: {
-        method: 'DELETE'
-      }
+export const makeDelete = (uri: string) => {
+  return {
+    url: process.env.NEXT_PUBLIC_API_URL + uri,
+    options: {
+      method: 'DELETE'
     }
   }
 }
