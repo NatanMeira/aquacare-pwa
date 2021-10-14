@@ -28,8 +28,6 @@ const SignUp = () => {
     validateOnChange: true,
     onSubmit: async (values) => {
       try {
-        // TODO: integrate with api
-
         const { password, name, email, passwordConfirmation } = values
 
         const { response } = await request(

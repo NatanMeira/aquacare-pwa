@@ -43,8 +43,8 @@ const AquariumLastUpdateCard = ({
     >
       {isHabitable
         ? 'HABITÁVEL'
-        : isHabitable
-        ? 'INABITÁVEL'
+        : !isHabitable
+        ? 'POSSIVELMENTE INABITÁVEL'
         : 'VOCÊ AINDA NÃO CADASTROU UM AQUARIO'}
     </S.Habitable>
   </S.Wrapper>

@@ -18,5 +18,6 @@ export const Content = styled.div`
   background: white;
   padding: 2rem 3rem;
   border-radius: 1rem;
-  width: 50rem;
+  width: 100%;
+  max-width: 50rem;
 `

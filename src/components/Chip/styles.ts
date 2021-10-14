@@ -12,7 +12,7 @@ const wrapperModifiers = {
 export const Wrapper = styled.span<Omit<ChipProps, 'label'>>`
   ${({ theme, color, fullWidth }) => css`
     background-color: ${theme.colors[color!]};
-    padding: 0.1rem 2.5rem;
+    padding: 0.1rem 0.5rem;
     border-radius: 3rem;
     font-weight: bold;
     border: 1px solid ${darken(0.5, theme.colors[color!])};

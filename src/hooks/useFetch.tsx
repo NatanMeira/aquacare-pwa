@@ -8,7 +8,18 @@ function useFetch<T = unknown>() {
   const request = React.useCallback(async ({ url, options }, session?) => {
     let response
     let json
-    console.log(options.body)
+    let headers
+
+    if (session) {
+      headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${session.jwt}`
+      }
+    } else {
+      headers = {
+        'Content-Type': 'application/json'
+      }
+    }
 
     try {
       setError(null)
@@ -16,10 +27,7 @@ function useFetch<T = unknown>() {
       response = await fetch(url, {
         body: options.body,
         method: options.method,
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${session.jwt}` || ''
-        }
+        headers
       })
       json = await response.json()
       if (response.ok === false) throw new Error(json.message)

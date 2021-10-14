@@ -56,7 +56,7 @@ export const Wrapper = styled.div`
 
     a:last-child {
       background: ${darken(0.1, theme.colors.darkBg)};
-      height: 3rem;
+      min-height: 3rem;
     }
   `}
 `

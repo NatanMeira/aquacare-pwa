@@ -25,7 +25,7 @@ const Aquariums = () => {
             columns={aquariumColumns}
             data={aquariums.data}
             buttonLabel={'Adicionar um novo aquário'}
-            buttonUrl={'/aquario/create'}
+            buttonUrl={'/aquarium/create'}
           />
         )}
       </S.Wrapper>
