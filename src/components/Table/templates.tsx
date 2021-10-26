@@ -15,7 +15,7 @@ export const aquariumColumns = [
   {
     Header: 'Action',
     accessor: 'id',
-    Cell: (row: any) => (
+    Cell: (row: { value: any }) => (
       <Button as={'a'} href={`/aquarium/${row.value}`}>
         VER STATUS
       </Button>
@@ -27,7 +27,7 @@ export const statsColumns = [
   {
     Header: 'Status',
     accessor: 'amonia',
-    Cell: (props) => {
+    Cell: (props: { value: string }) => {
       return (
         <Chip
           label={props.value === 'safe/alert' ? 'SEGURO' : 'PERIGOSO'}
@@ -39,14 +39,14 @@ export const statsColumns = [
   {
     Header: 'Habitável',
     accessor: 'is_habitable',
-    Cell: (props) => {
+    Cell: (props: { value: any }) => {
       return props.value ? 'HABITÁVEL' : 'INABITÁVEL'
     }
   },
   {
     Header: 'Enviado em:',
     accessor: 'created_at',
-    Cell: (props) => {
+    Cell: (props: { value: string | number | Date }) => {
       return format(new Date(props.value), 'HH:mm - dd/MM/yyyy')
     }
   }
