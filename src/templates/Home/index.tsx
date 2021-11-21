@@ -17,9 +17,15 @@ const Home = () => {
   const lastUpdate = useFetch<any>()
   const aquariums = useFetch<Aquarium[]>()
 
+  function getLastStats() {
+    setInterval(() => {
+      lastUpdate.request(AQUARIUM_LAST_UPDATE_STATS(), session)
+    }, 5000)
+  }
+
   useEffect(() => {
-    lastUpdate.request(AQUARIUM_LAST_UPDATE_STATS(), session)
     aquariums.request(USER_AQUARIUMS(session?.id as number), session)
+    getLastStats()
   }, [])
 
   return (

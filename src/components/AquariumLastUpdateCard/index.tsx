@@ -39,7 +39,7 @@ const AquariumLastUpdateCard = ({
       </S.AquariumInfo>
     </S.Main>
     <S.Habitable
-      bgColor={isHabitable ? 'success' : isHabitable ? 'error' : 'primary'}
+      bgColor={isHabitable ? 'success' : !isHabitable ? 'error' : 'primary'}
     >
       {isHabitable
         ? 'HABITÁVEL'
