@@ -98,7 +98,7 @@ const AddDevice = () => {
 
         <S.FormControl>
           <Button type="submit" fullWidth>
-            Adicionar aquário
+            Adicionar dispositivo
           </Button>
         </S.FormControl>
       </form>
