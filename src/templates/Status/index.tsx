@@ -19,10 +19,17 @@ const Status = () => {
     const { id } = router.query
     if (id) {
       stats.request(AQUARIUM_STATS(+id), session)
+      handleUpdateStatus(+id)
     } else {
       router.push('/')
     }
   }, [])
+
+  function handleUpdateStatus(id: number) {
+    setInterval(() => {
+      stats.request(AQUARIUM_STATS(id), session)
+    }, 5000)
+  }
 
   return (
     <Base>

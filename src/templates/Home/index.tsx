@@ -25,6 +25,7 @@ const Home = () => {
 
   useEffect(() => {
     aquariums.request(USER_AQUARIUMS(session?.id as number), session)
+    lastUpdate.request(AQUARIUM_LAST_UPDATE_STATS(), session)
     getLastStats()
   }, [])
 
