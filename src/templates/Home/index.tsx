@@ -35,7 +35,7 @@ const Home = () => {
           isHabitable={lastUpdate.data.is_habitable}
           liters={lastUpdate.data.liters}
           name={lastUpdate.data.name}
-          updateAt={lastUpdate.data.created_at}
+          updateAt={lastUpdate.data.createdAt}
           status={lastUpdate.data.status}
         />
       )}
