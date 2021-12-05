@@ -38,7 +38,10 @@ const Status = () => {
           <Table
             title="Status do Aquário"
             columns={statsColumns}
-            data={stats.data}
+            data={stats.data.map((stat) => ({
+              ...stat,
+              ppm: stat.amonia
+            }))}
           />
         )}
       </S.Wrapper>

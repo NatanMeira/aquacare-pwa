@@ -29,6 +29,8 @@ const Home = () => {
     getLastStats()
   }, [])
 
+  console.log(lastUpdate.data)
+
   return (
     <Base>
       {lastUpdate.data && (
@@ -37,7 +39,7 @@ const Home = () => {
           liters={lastUpdate.data.liters}
           name={lastUpdate.data.name}
           updateAt={lastUpdate.data.createdAt}
-          status={lastUpdate.data.status}
+          status={lastUpdate.data.amonia}
         />
       )}
       {aquariums.data && (

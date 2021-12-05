@@ -37,6 +37,15 @@ export const statsColumns = [
     }
   },
   {
+    Header: 'Nível de Amônia',
+    accessor: 'ppm',
+    Cell: (props: { value: string }) => {
+      return props.value === 'safe/alert'
+        ? 'menor que 0.19ppm'
+        : 'maior que 0.20ppm'
+    }
+  },
+  {
     Header: 'Habitável',
     accessor: 'is_habitable',
     Cell: (props: { value: any }) => {
